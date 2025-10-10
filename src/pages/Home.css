@@ -1,0 +1,114 @@
+.home-main {
+  padding: 2rem;
+}
+
+.home-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-left: 1.5rem;
+  color: #246afe;
+}
+
+.home-summary {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 2rem;
+  margin-left: 1.6rem;
+}
+
+.home-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.home-upcoming {
+  margin: 2.5rem 1.6rem 0 1.6rem;
+}
+
+.home-upcoming-title {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.home-upcoming-empty {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.home-upcoming-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.home-upcoming-item {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-upcoming-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.home-upcoming-meta {
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.home-upcoming-comment {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.home-upcoming-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(36, 106, 254, 0.12);
+  color: #246afe;
+  text-transform: lowercase;
+}
+
+.home-upcoming-tag.retorno {
+  background: rgba(36, 106, 254, 0.12);
+  color: #246afe;
+}
+
+.home-upcoming-tag.novo {
+  background: rgba(22, 163, 74, 0.12);
+  color: #166534;
+}
+
+.home-upcoming-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.home-upcoming-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}

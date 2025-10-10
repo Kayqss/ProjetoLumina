@@ -1,0 +1,984 @@
+/* Layout base do perfil */
+
+.perfil-container {
+  padding-left: 4rem;
+}
+
+/* Top bar with back, tabs, brand */
+
+.perfil-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.back-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #fff;
+  color: #246afe;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.perfil-nav {
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #666;
+  padding: 0.6rem 0.4rem;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.tab[aria-selected="true"] {
+  color: #246afe;
+  border-bottom-color: #246afe;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.brand {
+  text-align: right;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Layout grid */
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+}
+
+.perfil-summary {
+  position: relative;
+  padding: 1rem 1rem 1.5rem;
+}
+
+/* Remover efeito de movimento no hover apenas para o card de dados do usuário */
+
+.perfil-summary.card {
+  width: 85%;
+  height: 700px;
+}
+
+.perfil-summary.card:hover {
+  transform: none !important;
+}
+
+.perfil-summary.summary-cleared {
+  max-height: 480px;
+  max-width: 420px;
+  align-self: start;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  grid-column: 2 / 1;
+}
+
+/* Botão de edição (lápis) do perfil */
+
+.perfil-edit-btn {
+  position: absolute;
+  top: 46px;
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Inputs de edição dentro do card */
+
+.perfil-edit-input,
+.perfil-edit-select,
+.perfil-edit-textarea {
+  width: 90%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  border: 1px solid rgba(36, 106, 254, 0.25);
+  background: #fff;
+  color: #111827;
+}
+
+.perfil-edit-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.perfil-save-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(36, 106, 254, 0.3);
+  background: #246afe;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(36, 106, 254, 0.25);
+}
+
+.perfil-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.perfil-avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.perfil-avatar img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 8px;
+}
+
+/* Botão de lixeira no canto superior esquerdo do card */
+
+.perfil-delete-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.perfil-summary .linha {
+  color: #4a5568;
+  margin: 0.15rem 0;
+}
+
+.perfil-summary .campo {
+  margin-top: 0.75rem;
+}
+
+.perfil-summary .rotulo {
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+}
+
+.perfil-summary .valor {
+  color: #1f2937;
+}
+
+/* Telefones em coluna */
+
+.phones-list {
+  margin: 0.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phones-list li {
+  line-height: 1.35;
+}
+
+.perfil-sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0rem; /* reduzir distância vertical entre boxes */
+  width: 100%;
+}
+
+.perfil-sections .card {
+  width: 90%;
+}
+
+.perfil-sections .card.section {
+  /* reequilibra o espaçamento do card restante */
+
+  margin-top: 0.5rem;
+}
+
+/* Última review de IA: manter estilo atual e impedir seleção */
+.perfil-sections .section:last-child,
+.perfil-sections .section:last-child p {
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+}
+
+.section {
+  position: relative;
+  padding: 1rem 1.25rem;
+}
+
+.section h3 {
+  margin: 0 0 0.35rem 0;
+  font-size: 1rem;
+  color: #3b4450;
+}
+
+.section p {
+  margin: 0.25rem 0 0;
+  color: #5b6472;
+}
+
+/* Seções sem contorno (sem fundo/borda/sombra) */
+
+.section-plain {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.perfil-sections .section-plain {
+  width: 90%;
+}
+
+/* Parágrafos transformados em área editável (multilinhas) */
+
+.editable-paragraph {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  min-height: 110px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+  color: #1f2937;
+  background: #ededed;
+  border: none;
+  border-radius: 20px;
+}
+
+.editable-paragraph:focus {
+  outline: 3px solid rgba(36, 106, 254, 0.25);
+  outline-offset: 2px;
+}
+
+/* Botão Salvar que aparece ao alterar conteúdo das caixas editáveis */
+
+.section-save-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(36, 106, 254, 0.35);
+  background: #246afe;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(36, 106, 254, 0.25);
+  cursor: pointer;
+}
+
+.section-save-btn:hover {
+  background: #1856da;
+}
+
+.section-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* (Revert) removido botão de edição por enquanto */
+
+/* Empty state */
+
+.empty-state {
+  padding: 2rem;
+  color: #555;
+}
+
+/* (revertido) estilos de estatísticas removidos */
+
+/* Estatísticas do paciente */
+
+.perfil-stats {
+  width: 100%;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  column-gap: 0px;
+  row-gap: 5px;
+  padding: 0.25rem 4rem 0.5rem 0rem;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.perfil-stats > .stats-grid.old-grid {
+  display: none;
+}
+
+.stats-title {
+  margin: 0.75rem 0 0.35rem 0.5rem;
+  font-size: 0.95rem;
+  color: #3b4450;
+  text-transform: capitalize;
+}
+
+.stats-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  /* recuo consistente, sem alterar o padding da barra */
+
+  margin: 1.5rem 5rem 0.25rem 0.5rem; /* top, right, bottom, left */
+}
+
+.stats-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats-filter label {
+  color: #3b4450;
+  font-size: 0.95rem;
+}
+
+.stats-filter select {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+.stats-delete-btn {
+  padding: 0.65rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #e63946;
+  background: #e63946;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.stats-delete-btn:hover {
+  color: #e63946;
+  background-color: white;
+  border-color: #e63946;
+  border: 1px solid #e63946;
+}
+
+.stat-card {
+  width: 95%;
+  box-sizing: border-box;
+  padding: 0.9rem 1rem;
+}
+
+.stat-card .k {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+.stat-card .v {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.stats-hint {
+  color: #6b7280;
+  margin-left: 0.5rem;
+}
+
+/* Meal plan section */
+
+.meal-header {
+  grid-column: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-self: start;
+  margin: 0 6rem 0 0;
+}
+
+.meal-add-btn {
+  padding: 0.65rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(36, 106, 254, 0.4);
+  background: #246afe;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.meal-add-btn:hover {
+  color: #246afe;
+  background-color: white;
+  border-color: #246afe;
+  border: 1px solid #246afe;
+}
+
+.meal-add-btn:focus-visible {
+  outline: 3px solid rgba(36, 106, 254, 0.35);
+  outline-offset: 2px;
+}
+
+.meal-sync-status {
+  font-size: 0.85rem;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.meal-sync-status.ok {
+  color: #16a34a;
+}
+
+.meal-sync-error {
+  font-size: 0.85rem;
+  color: #e63946;
+  font-weight: 500;
+}
+
+.meal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: -12rem 8.5rem 0rem 0rem;
+}
+
+.meal-card {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.meal-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.meal-time {
+  min-width: 84px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 14px;
+  background: rgba(36, 105, 254, 0);
+  color: #1f2937;
+  font-weight: 600;
+  text-align: center;
+}
+
+.meal-title {
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.meal-editable {
+  display: inline-block;
+  cursor: text;
+}
+
+.meal-editable:focus {
+  outline: 1px solid rgba(36, 106, 254, 0.35);
+  outline-offset: 2px;
+}
+
+.meal-empty-hint {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.meal-card-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.meal-card-actions {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.meal-save-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.meal-delete-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.meal-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.meal-foods {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.meal-food-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.meal-food-input {
+  padding: 0.55rem 0.8rem;
+  font-size: 16px;
+  border-radius: 10px;
+  border: NONE;
+  background: #ededed;
+  color: #111827;
+}
+
+.meal-food-input:focus {
+  outline: 0px solid rgba(36, 106, 254, 0.28);
+  outline-offset: 2px;
+}
+
+.meal-food-name {
+  flex: 1;
+}
+
+.meal-food-qty-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meal-food-qty {
+  width: 45px;
+  text-align: left;
+}
+
+.meal-food-unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.meal-add-food-btn {
+  align-self: flex-start;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid rgba(36, 106, 254, 0.4);
+  background: rgb(36 106 254);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.meal-add-food-btn:hover {
+  color: #246afe;
+  background-color: white;
+  border-color: #246afe;
+  border: 1px solid #246afe;
+}
+.meal-note {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meal-note-label {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.meal-note-input {
+  min-height: 90px;
+  border-radius: 12px;
+  border: none;
+  background: #ededed;
+  color: #111827;
+  padding: 0.5em 0rem 0rem 0.5rem;
+  font-size: 16px;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.meal-note-input:focus {
+  outline: 0px solid rgba(36, 106, 254, 0.3);
+  outline-offset: 2px;
+}
+
+.meal-food-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.meal-equivalent-btn {
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: rgb(36 106 254);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.meal-remove-food-btn,
+.meal-remove-equivalent-btn {
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #e63946;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.meal-equivalent-or {
+  font-weight: 600;
+  color: #6b7280;
+  display: inline-flex;
+  align-items: center;
+}
+
+.meal-equivalents {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0 0 0 2.25rem;
+}
+
+.meal-equivalent-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.meal-equivalent-name {
+  flex: 1;
+}
+
+.meal-equivalent-qty {
+  width: 45px;
+  text-align: left;
+}
+
+.meal-macro-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.meal-macro-field {
+  display: flex;
+  flex-direction: column;
+  color: #1f2937;
+  gap: 0.5rem;
+  font-size: 16px;
+}
+
+.meal-macro-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: #ededed;
+  width: 100px; /* mesmo tamanho que usamos nas metas */
+}
+
+.meal-macro-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: end;
+  color: #111827;
+  background: transparent;
+  font-size: 16px;
+}
+
+.meal-macro-input:focus {
+  outline: 0px solid rgba(36, 106, 254, 0.28);
+  outline-offset: 2px;
+}
+
+.meal-macro-suffix {
+  color: #6b7280;
+}
+
+.meal-goals-wrapper {
+  grid-column: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.summary-default {
+  display: block;
+}
+
+.summary-dieta {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.perfil-summary.summary-cleared .summary-default {
+  display: none;
+}
+
+.perfil-summary.summary-cleared .summary-dieta {
+  display: flex;
+}
+
+.summary-dieta .dieta-total-energy-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-start;
+}
+
+.dieta-total-energy-value {
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.summary-dieta .macro-chart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.macro-chart-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.macro-chart-circle::after {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.macro-chart-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  min-width: 220px;
+}
+
+.macro-legend-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.macro-legend-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--macro-color, #246afe);
+  flex-shrink: 0;
+}
+
+.macro-legend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.macro-legend-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #111827;
+}
+
+.macro-legend-target {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.macro-legend-progress {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--macro-bg, #e5e7eb);
+  overflow: hidden;
+}
+
+.macro-legend-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--macro-color, #246afe);
+  transform-origin: left;
+  transform: scaleX(var(--macro-progress, 0));
+  border-radius: inherit;
+  transition: transform 0.3s ease;
+}
+
+.meal-goals {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #d3d3d3;
+  max-width: 300px;
+}
+
+.meal-goals-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.meal-goals-clear {
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #e63946;
+  background: #e63946;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.meal-goals-clear:hover {
+  color: #e63946;
+  background-color: white;
+  border-color: #e63946;
+  border: 1px solid #e63946;
+}
+
+.meal-goals-clear:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.meal-goals-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.meal-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 0.8rem;
+}
+
+.meal-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 0.8rem;
+}
+
+.meal-goal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  color: #1f2937;
+  min-width: 150px;
+}
+
+.meal-goal-input-wrapper {
+  display: flex;
+  width: 100px;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: #ededed;
+}
+
+.meal-goal-input {
+  font-size: 16px;
+  width: 100%;
+  text-align: end;
+  border: none;
+  outline: none;
+  color: #111827;
+  background: transparent;
+}
+
+.meal-goal-input:focus-visible {
+  outline: none;
+}
+
+.meal-goal-suffix {
+  color: #6b7280;
+}

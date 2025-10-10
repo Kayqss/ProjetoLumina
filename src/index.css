@@ -1,0 +1,31 @@
+/* index.css */
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --header-height: 90px;
+}
+
+body {
+  background-color: #EBF0FE;
+  margin: 0;
+  padding: 0;
+}
+
+.page-background {
+  background: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-top: calc(var(--header-height) + 0.5rem);
+  box-sizing: border-box;
+}
+
+@media (max-width: 870px) {
+  :root {
+    --header-height: 140px;
+  }
+}

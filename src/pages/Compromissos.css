@@ -1,0 +1,279 @@
+.compromisso-geral-container {
+  padding: 2rem;
+}
+
+.compromisso-geral-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.compromisso-geral-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 1rem;
+  margin-left: 1.6rem;
+}
+
+.compromisso-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.compromisso-content .placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1rem;
+}
+
+/* Novo compromisso */
+.novo-comp-wrap {
+  margin: 0 1.5rem 1rem 1.5rem;
+}
+.novo-comp-btn {
+  padding: 1rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #246afe;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Estado aberto: botão Fechar em vermelho */
+.novo-comp-btn.is-open {
+  background: #e63946;
+}
+.novo-comp-btn.is-open:hover {
+  color: #e63946;
+  background-color: white;
+  border-color: #e63946;
+  border: 1px solid #e63946;
+}
+
+.novo-comp-card {
+  /* expandir horizontalmente e centralizar */
+  width: 95%;
+  margin: 0 auto 1.25rem auto;
+  padding: 1rem;
+}
+.comp-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.comp-row.two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 12px;
+}
+.comp-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.comp-input,
+.comp-textarea {
+  width: 100%;
+  font-size: 16px;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  border: none;
+  background: #ededed;
+  color: #111827;
+  box-sizing: border-box;
+}
+.comp-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.comp-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+.btn-primary {
+  align-self: flex-start;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid rgba(36, 106, 254, 0.4);
+  background: rgb(36 106 254);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  color: #246afe;
+  background-color: white;
+  border-color: #246afe;
+  border: 1px solid #246afe;
+}
+
+.btn-secondary {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  color: #111827;
+  cursor: pointer;
+}
+.comp-hint {
+  font-size: 0.9rem;
+  color: #666;
+}
+.comp-inline {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+.comp-inline .comp-input {
+  flex: 1;
+}
+.comp-buscar-btn {
+  white-space: nowrap;
+}
+.comp-sugestoes {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-height: 180px;
+  overflow: auto;
+  width: 100%;
+}
+.comp-sugestoes li {
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+.comp-sugestoes li:hover {
+  background: #f3f4f6;
+}
+.comp-selected {
+  font-size: 0.9rem;
+  color: #333;
+  margin: -0.25rem 0 0.25rem;
+}
+
+/* Agrupamento por dia */
+.day-group {
+  margin-bottom: 2.25rem;
+}
+.day-title {
+  font-weight: 700;
+  color: #3b4450;
+  margin: 0 0 1rem 0; /* alinhar verticalmente com o título da página */
+  text-transform: capitalize;
+}
+
+/* Itens de compromisso */
+.compromisso-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+  padding: 30px 20px;
+  margin: 0 0 1rem 0;
+  cursor: default;
+}
+
+.compromisso-card .paciente-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.compromisso-card .paciente-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-start;
+}
+
+.compromisso-card .compromisso-nome {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+
+.compromisso-card .compromisso-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(36, 106, 254, 0.12);
+  color: #246afe;
+  text-transform: lowercase;
+}
+
+.compromisso-card .compromisso-tag.retorno {
+  background: #165ba31f;
+  color: #246afe;
+}
+
+.compromisso-card .compromisso-tag.novo {
+  background: #16a34a1f;
+  color: #166534;
+}
+
+.compromisso-card .meta {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.compromisso-card .paciente-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.compromisso-card .compromisso-comment {
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.35;
+}
+
+.compromisso-card .compromisso-actions {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+.compromisso-card .trash-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+.compromisso-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 1.5rem 0.25rem 1.5rem; /* top, right, bottom, left */
+}
+.compromisso-header .novo-comp-btn {
+  margin-left: 1rem;
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "Patient" ADD COLUMN "macroTargets" TEXT NOT NULL DEFAULT '{}';

@@ -1,0 +1,204 @@
+.meus-pacientes-container {
+  padding: 2rem;
+  position: relative; /* allows absolute-positioned FAB */
+}
+
+.meus-pacientes-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: -1rem;
+  margin-left: 1.5rem;
+}
+
+.meus-pacientes-desc {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 2rem;
+  margin-left: 1.6rem;
+}
+
+/* Containers de formulário */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem;
+}
+
+.form-input {
+  padding: 1rem;
+  border-radius: 20px;
+  max-width: 530px;
+  border: none;
+  background: #ededed;
+  font-size: 16px;
+}
+
+.form-input:focus,
+.birth-input:focus {
+  outline: none;
+  border-color: #246afe;
+}
+
+.birth-date-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.birth-label {
+  font-size: 0.9rem;
+  color: #555;
+  margin-right: 0.5rem;
+}
+
+.birth-input {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 15px;
+  max-width: 110px;
+  border: none;
+  background: #ededed;
+
+  text-align: center;
+}
+
+.register-btn {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  max-width: 565px;
+  border: none;
+  background: #246afe;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.register-btn:hover {
+  color: #246afe;
+  background-color: white;
+  border-color: #246afe;
+  border: 1px solid #246afe;
+}
+
+.inline-inputs {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nome-input {
+  flex: 1;
+}
+
+.id-input {
+  flex: 1;
+  max-width: 150px;
+}
+
+/* Botão azul padrão */
+.toggle-btn {
+  padding: 1rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #246afe;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.toggle-btn:hover,
+.toggle-btn:focus {
+  color: #246afe;
+  background-color: white;
+  border-color: #246afe;
+  border: 1px solid #246afe;
+}
+
+.toggle-btn.cancel-btn:hover,
+.toggle-btn.cancel-btn:focus {
+  color: #e63946;
+  background-color: white;
+  border-color: #e63946;
+  border: 1px solid #e63946;
+}
+
+/* Floating action button for Novo Paciente in the top-right */
+/* .floating-new-btn removed; button now aligned inline */
+
+/* Linha divisória entre busca e cadastro */
+.divider {
+  margin: 0 1.5rem;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Cartão de paciente (lista) baseado no estilo da Avaliação */
+.paciente-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(25px);
+  border: 1px solid #d3d3d3;
+
+  border-radius: 15px !important;
+  padding: 30px 20px !important;
+  margin: 0 0 1rem 0rem !important;
+  cursor: pointer;
+}
+
+.paciente-item strong {
+  font-weight: 700;
+}
+
+.paciente-item .paciente-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.paciente-item .paciente-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-start;
+}
+
+.paciente-item .paciente-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.paciente-item .meta {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Campo de seleção de gênero com estilo igual aos inputs */
+.gender-select {
+  padding: 1rem;
+  border-radius: 20px;
+  max-width: 565px;
+  border: none;
+  background: #ededed;
+  font-size: 1rem;
+  appearance: none; /* remove o estilo nativo do select */
+}
+
+.gender-select:focus {
+  outline: none;
+  border-color: #246afe;
+  box-shadow: 0 0 5px #246afe5a;
+}

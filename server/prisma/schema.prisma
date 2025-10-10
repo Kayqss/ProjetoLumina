@@ -1,0 +1,99 @@
+// Prisma schema for Lumina backend (SQLite)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id               Int           @id @default(autoincrement())
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  operatorId       Int?
+  operator         Operator?     @relation(fields: [operatorId], references: [id], onDelete: Cascade)
+
+  // Basic info
+  genero           String
+  nome             String
+  sobrenome        String
+  cpf              String        @unique
+  nascimento       DateTime
+
+  // Medical details (free text for now)
+  historicoClinico String
+  medicacoes       String
+  alergias         String
+  anotacoes        String        @default("")
+  ultimaReviewIA String?
+  // Telefones do paciente: armazenado como JSON serializado (string)
+  telefones        String       @default("[]")
+  mealPlan         String       @default("[]")
+  macroTargets     String       @default("{}")
+
+  evaluations      Evaluation[]
+  appointments     Appointment[]
+}
+
+model Evaluation {
+  id             Int       @id @default(autoincrement())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  // Link to patient
+  patientId      Int
+  patient        Patient   @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  // Dados basicos
+  peso           Float?
+  alturaCm       Float?
+  imc            Float?
+
+  // CircunferÃªncias corporais (cm)
+  cintura        Float?
+  quadril        Float?
+  abdomen        Float?
+  bracoRelaxado  Float?
+  bracoContraido Float?
+  coxa           Float?
+  panturrilha    Float?
+
+  // MÃ©todo das 3 dobras (mm)
+  peitoralMm     Float?
+  abdomenMm      Float?
+  coxaMm         Float?
+}
+
+model Appointment {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  operatorId Int?
+  operator   Operator? @relation(fields: [operatorId], references: [id], onDelete: Cascade)
+
+  // Link opcional ao paciente (retorno). Nulo para novas consultas sem cadastro.
+  patientId  Int?
+  patient    Patient?  @relation(fields: [patientId], references: [id], onDelete: SetNull)
+
+  // Dados do compromisso
+  name       String
+  date       DateTime   // armazenamos a data (meia-noite local)
+  time       String     // HH:mm
+  comment    String     @default("")
+}
+model Operator {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  nome         String
+  sobrenome    String
+  genero       String
+  email        String   @unique
+  passwordHash String
+  patients     Patient[]
+  appointments Appointment[]
+}

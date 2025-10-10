@@ -1,0 +1,109 @@
+.login-container {
+  height: 100vh;
+  background-image: url("../assets/images/LoginBG.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: #d1d1d140;
+  backdrop-filter: blur(10px);
+  border: 1px solid #ffffff33;
+  border-radius: 50px;
+  padding: 3rem;
+  padding-bottom: 5rem;
+  width: 350px;
+  color: #000000;
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto 2rem;
+  width: 200px;
+  height: auto;
+}
+
+.login-box h4 {
+  margin-bottom: 0.5rem;
+}
+
+.login-box p {
+  margin-bottom: 2rem;
+  font-size: 16px;
+  color: #000000;
+}
+
+.login-input {
+  width: 87%;
+  font-size: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #000000;
+  outline: none;
+}
+
+/* placeholder */
+.login-input::placeholder {
+  color: #000000a6;
+  opacity: 1;
+}
+
+.password-container {
+  position: relative;
+  padding-bottom: 0.5rem; /* reduzido para aproximar do texto inferior */
+}
+
+/* link "Convite para cadastro" */
+.cadastro-convite {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+.clique-aqui {
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clique-aqui:hover {
+  color: #000000;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #246afe;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background-color: #1669c1;
+}
+.login-feedback {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.login-feedback.error {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.login-feedback.success {
+  color: rgba(0, 0, 0, 0.5);
+}

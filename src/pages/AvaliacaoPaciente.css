@@ -1,0 +1,171 @@
+﻿/* Container geral */
+.avaliacao-paciente.consulta-container {
+  padding: 2rem;
+}
+
+/* TÃ­tulos */
+.avaliacao-paciente .consulta-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+  margin-left: 1.5rem;
+}
+
+.avaliacao-paciente .consulta-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 2rem;
+  margin-left: 1.6rem;
+}
+
+/* Card do paciente */
+.avaliacao-paciente .paciente-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+  background: rgb(255 255 255);
+  border: 1px solid #d3d3d3;
+  border-radius: 30px;
+  padding: 18px 20px;
+  margin: 0 1.5rem 20px 1.5rem;
+}
+
+.avaliacao-paciente .avatar-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+}
+
+
+.avaliacao-paciente .paciente-infos {
+  display: grid;
+  gap: 5px;
+  color: #0d1b3d;
+}
+
+.avaliacao-paciente .ultima-consulta {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* Blocos */
+.avaliacao-paciente .bloco {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 1.5rem 1.5rem 1rem;
+}
+
+.avaliacao-paciente .bloco-legenda {
+  margin: 30px 0 20px 0; /* alinhado com os inputs */
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Grid de inputs */
+.avaliacao-paciente .grid-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  column-gap: 0px;
+  row-gap: 1rem;
+  padding: 0.25rem 4rem 0.5rem 0rem;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Inputs */
+.avaliacao-paciente .form-input {
+  padding: 0 0 0.5rem 0.1rem;
+  border-radius: 20px;
+  width: 95%;
+  box-sizing: border-box;
+  border: none;
+  background: #ededed;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.avaliacao-paciente .form-input:focus {
+  border-color: #246afe;
+}
+
+.avaliacao-paciente select.form-input {
+  text-align-last: center;
+  cursor: pointer;
+}
+
+/* Floating label fields */
+.avaliacao-paciente .float-field {
+  position: relative;
+  width: 95%;
+  box-sizing: border-box;
+}
+.avaliacao-paciente .float-field > label {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  font-size: 0.8rem;
+  color: rgb(85, 85, 85);
+  pointer-events: none;
+}
+.avaliacao-paciente .float-field > .form-input {
+  width: 100%;
+  padding-top: 1.6rem; /* space for label */
+}
+
+.avaliacao-paciente .float-field.float-field--no-title > .form-input {
+  padding-top: 0.8rem;
+}
+
+
+/* EspaÃ§amento antes do mÃ©todo das 3 dobras */
+.avaliacao-paciente .trifold-spacer {
+  height: 18px;
+}
+
+/* CTA (centralizado) */
+.avaliacao-paciente .cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 60px 1.5rem 0;
+}
+.avaliacao-paciente .primary-btn {
+  height: 52px;
+  min-width: 600px;
+  padding: 0;
+  border: 1px solid #246afe;
+  border-radius: 20px;
+  background: #246afe;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.avaliacao-paciente .primary-btn:hover {
+  color: #246afe;
+  background-color: white;
+  border-color: #246afe;
+  border: 1px solid #246afe;
+}
+
+/* Responsividade */
+@media (max-width: 980px) {
+  .avaliacao-paciente .grid-inputs {
+    flex-direction: column;
+  }
+}
+@media (max-width: 780px) {
+  .avaliacao-paciente .paciente-card {
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    margin: 0 1rem 16px 1rem;
+  }
+}
+@media (max-width: 520px) {
+  .avaliacao-paciente.consulta-container {
+    padding: 1.5rem;
+  }
+}
