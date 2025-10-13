@@ -29,26 +29,34 @@ export function getOperatorId() {
 
 export function withOperator(options = {}) {
   const operatorId = getOperatorId();
-  if (!operatorId) return { ...options };
-
   const baseOptions = { ...options };
+  const forcedHeaders = { "ngrok-skip-browser-warning": "true" };
+
+  if (operatorId) {
+    forcedHeaders["x-operator-id"] = String(operatorId);
+  }
+
+  const forcedEntries = Object.entries(forcedHeaders);
+  if (forcedEntries.length === 0) {
+    return baseOptions;
+  }
+
   const existingHeaders = options.headers;
-  const operatorHeader = { "x-operator-id": String(operatorId) };
 
   if (!existingHeaders) {
-    baseOptions.headers = operatorHeader;
+    baseOptions.headers = forcedHeaders;
   } else if (existingHeaders instanceof Headers) {
     const headersCopy = new Headers(existingHeaders);
-    headersCopy.set("x-operator-id", String(operatorId));
+    forcedEntries.forEach(([key, value]) => headersCopy.set(key, value));
     baseOptions.headers = headersCopy;
   } else if (Array.isArray(existingHeaders)) {
-    const headersCopy = existingHeaders.slice();
-    headersCopy.push(["x-operator-id", String(operatorId)]);
-    baseOptions.headers = headersCopy;
+    const headersCopy = new Headers(existingHeaders);
+    forcedEntries.forEach(([key, value]) => headersCopy.set(key, value));
+    baseOptions.headers = Array.from(headersCopy.entries());
   } else {
     baseOptions.headers = {
       ...existingHeaders,
-      "x-operator-id": String(operatorId),
+      ...forcedHeaders,
     };
   }
 
