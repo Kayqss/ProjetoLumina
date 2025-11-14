@@ -1942,7 +1942,7 @@ function PerfilPaciente() {
                                           )}
                                         />
                                         <span className="meal-food-unit">
-                                          g
+                                          g/ml
                                         </span>
                                       </div>
                                       <button
