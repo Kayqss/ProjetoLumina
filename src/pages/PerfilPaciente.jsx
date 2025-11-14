@@ -1721,7 +1721,9 @@ function PerfilPaciente() {
                 </div>
                 <div className="campo">
                   <div className="rotulo">Última consulta</div>
-                  <div className="valor">-</div>
+                  <div className="valor">
+                    {lastEval?.createdAt ? formatDate(lastEval.createdAt) : "-"}
+                  </div>
                 </div>
               </div>
               {activeTab === "dieta" && (
